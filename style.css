@@ -771,55 +771,97 @@ nav a:hover {
 /* WRITING */
 
 .writing-list {
-    border-top: 1px solid var(--border-color);
+    padding-top: 42px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 28px;
 }
 
 .writing-item {
-    display: grid;
-    grid-template-columns: 120px 1fr;
-    gap: 40px;
 
-    padding: 32px 0;
+    display: block;
 
-    border-bottom: 1px solid var(--border-color);
+    min-width: 0;
 
-    text-decoration: none;
-    color: inherit;
+    padding-bottom: 28px;
 
-    transition: opacity 0.2s ease;
+    border-bottom: 1px solid var(--line);
+
+    transition: color .2s ease;
 }
 
-.writing-item:hover {
-    opacity: 0.6;
+.writing-item:hover h2 {
+    color: var(--green);
 }
 
 .writing-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
 
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 18px;
 }
 
-.writing-content h2 {
+.writing-number {
+
+    color: var(--green);
+
+    font-family: var(--serif);
+
+    font-size: 14px;
+
+    font-style: italic;
+}
+
+.writing-source {
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: .13em;
+}
+
+.writing-item h2 {
+
     margin: 0 0 12px;
 
-    font-family: "Playfair Display", serif;
-    font-size: 2rem;
-    font-weight: 500;
-    line-height: 1.2;
+    font-family: var(--serif);
+
+    font-size: 34px;
+
+    font-weight: 400;
+
+    line-height: 1.1;
 }
 
-.writing-content h2 span {
-    font-family: "DM Sans", sans-serif;
-    font-size: 1rem;
+.writing-item h2 span {
+
+    font-family: var(--sans);
+
+    font-size: 15px;
+
+    margin-left: 5px;
 }
 
-.writing-content p {
-    max-width: 600px;
+.writing-item p {
+
+    max-width: 500px;
+
     margin: 0;
+
+    color: var(--muted);
+
+    font-size: 14px;
 
     line-height: 1.6;
 }
