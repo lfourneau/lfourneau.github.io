@@ -1,322 +1,1344 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>Personal Blog — Louis Fourneau</title>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@400;500;600&display=swap"
-        rel="stylesheet"
-    >
+    <title>miniRT — Louis Fourneau</title>
 
     <link rel="stylesheet" href="../style.css">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap"
+        rel="stylesheet"
+    >
+
     <style>
 
-        .project-page {
+        /* =====================================================
+           miniRT — VISUAL IDENTITY
+           ===================================================== */
 
-            width: min(
-                calc(100% - 64px),
-                1180px
-            );
+        :root {
+            --rt-bg: #f5f1e8;
+            --rt-bg-soft: #ebe6da;
 
+            --rt-text: #181a18;
+            --rt-muted: #73776f;
+
+            --rt-line: #d6d0c3;
+
+            --rt-blue: #4169e1;
+            --rt-orange: #f26b38;
+            --rt-pink: #df5c9b;
+            --rt-yellow: #e8b83f;
+
+            --rt-serif: "Playfair Display", Georgia, serif;
+            --rt-sans: "DM Sans", Arial, sans-serif;
+            --rt-mono: "DM Mono", monospace;
+        }
+
+
+        /* =====================================================
+           PAGE
+           ===================================================== */
+
+        body.raytracer-page {
+            margin: 0;
+
+            background: var(--rt-bg);
+            color: var(--rt-text);
+
+            font-family: var(--rt-sans);
+        }
+
+        .raytracer-page a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        /* =====================================================
+           HEADER
+           ===================================================== */
+
+        .rt-header {
+            max-width: 1200px;
             margin: 0 auto;
 
-            padding: 100px 0;
-        }
-
-        .back {
-
-            display: inline-block;
-
-            margin-bottom: 70px;
-
-            color: var(--green);
-
-            font-size: 12px;
-
-            font-weight: 600;
-        }
-
-        .project-page h1 {
-
-            margin: 0;
-
-            max-width: 900px;
-
-            font-size:
-                clamp(
-                    58px,
-                    10vw,
-                    130px
-                );
-
-            font-weight: 500;
-
-            letter-spacing: -.06em;
-
-            line-height: .92;
-        }
-
-        .project-intro {
-
-            max-width: 650px;
-
-            margin: 35px 0 55px;
-
-            color: var(--muted);
-
-            font-size: 18px;
-        }
-
-        .project-hero-image {
-
-            width: 100%;
-
-            aspect-ratio: 16 / 8;
-
-            margin: 55px 0;
-        }
-
-        .project-detail {
-
-            display: grid;
-
-            grid-template-columns: 1fr 2fr;
-
-            gap: 60px;
-
-            padding: 50px 0;
-
-            border-top: 1px solid var(--line);
-        }
-
-        .project-detail h2 {
-
-            margin: 0;
-
-            font-family: var(--serif);
-
-            font-size: 34px;
-
-            font-weight: 400;
-        }
-
-        .project-detail p {
-
-            margin: 0;
-
-            max-width: 650px;
-
-            color: var(--muted);
-        }
-
-        .page-tags {
+            padding: 30px 40px;
 
             display: flex;
+            align-items: center;
+            justify-content: space-between;
 
-            flex-wrap: wrap;
-
-            gap: 8px;
+            border-bottom: 1px solid var(--rt-line);
         }
 
-        .page-tags span {
+        .rt-brand {
+            font-family: var(--rt-mono);
+            font-size: 13px;
+            font-weight: 500;
 
-            padding: 5px 10px;
+            letter-spacing: 0.08em;
+        }
 
-            border: 1px solid var(--line);
+        .rt-nav {
+            display: flex;
+            gap: 30px;
 
-            color: var(--green);
+            color: var(--rt-muted);
 
+            font-family: var(--rt-mono);
+            font-size: 11px;
+            letter-spacing: 0.08em;
+        }
+
+        .rt-nav a:hover {
+            color: var(--rt-text);
+        }
+
+
+        /* =====================================================
+           MAIN
+           ===================================================== */
+
+        .rt-main {
+            max-width: 1200px;
+            margin: 0 auto;
+
+            padding: 85px 40px 120px;
+        }
+
+
+        /* =====================================================
+           HERO
+           ===================================================== */
+
+        .rt-kicker {
+            margin-bottom: 45px;
+
+            color: var(--rt-muted);
+
+            font-family: var(--rt-mono);
+            font-size: 11px;
+            letter-spacing: 0.15em;
+        }
+
+        .rt-hero {
+            position: relative;
+            min-height: 560px;
+        }
+
+        .rt-hero-text {
+            position: relative;
+            z-index: 2;
+
+            max-width: 720px;
+        }
+
+        .rt-title {
+            margin: 0;
+
+            font-family: var(--rt-serif);
+            font-size: clamp(70px, 12vw, 150px);
+            line-height: 0.85;
+            font-weight: 500;
+
+            letter-spacing: -0.06em;
+        }
+
+        .rt-title span {
+            display: block;
+        }
+
+        .rt-title-accent {
+            font-style: italic;
+        }
+
+        .rt-intro {
+            max-width: 530px;
+            margin-top: 45px;
+
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .rt-hero-equation {
+            position: absolute;
+
+            right: 20px;
+            top: 40px;
+
+            width: 360px;
+            height: 360px;
+
+            border: 1px solid var(--rt-line);
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            transform: rotate(-8deg);
+
+            font-family: var(--rt-mono);
+            font-size: 13px;
+            color: var(--rt-muted);
+        }
+
+        .rt-hero-equation::before {
+            content: "";
+
+            position: absolute;
+
+            width: 230px;
+            height: 230px;
+
+            border: 1px solid var(--rt-blue);
+            border-radius: 50%;
+
+            opacity: 0.45;
+        }
+
+        .rt-hero-equation::after {
+            content: "";
+
+            position: absolute;
+
+            width: 90px;
+            height: 90px;
+
+            background: var(--rt-orange);
+
+            border-radius: 50%;
+
+            opacity: 0.85;
+        }
+
+        .rt-equation-text {
+            position: relative;
+            z-index: 2;
+
+            background: var(--rt-bg);
+            padding: 10px;
+
+            transform: rotate(8deg);
+        }
+
+
+        /* =====================================================
+           SECTION TITLES
+           ===================================================== */
+
+        .rt-section {
+            margin-top: 130px;
+        }
+
+        .rt-section-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+
+            margin-bottom: 45px;
+
+            padding-bottom: 15px;
+
+            border-bottom: 1px solid var(--rt-line);
+        }
+
+        .rt-section-number {
+            color: var(--rt-muted);
+
+            font-family: var(--rt-mono);
+            font-size: 11px;
+        }
+
+        .rt-section-title {
+            margin: 0;
+
+            font-family: var(--rt-serif);
+            font-size: 42px;
+            font-weight: 500;
+            letter-spacing: -0.03em;
+        }
+
+
+        /* =====================================================
+           RAY SECTION
+           ===================================================== */
+
+        .ray-diagram {
+            position: relative;
+
+            min-height: 430px;
+
+            border: 1px solid var(--rt-line);
+
+            background: #f8f5ee;
+
+            overflow: hidden;
+        }
+
+        .ray-camera {
+            position: absolute;
+
+            left: 12%;
+            top: 50%;
+
+            width: 28px;
+            height: 28px;
+
+            border: 2px solid var(--rt-text);
+            border-radius: 50%;
+
+            transform: translateY(-50%);
+        }
+
+        .ray-line {
+            position: absolute;
+
+            left: calc(12% + 28px);
+            top: 50%;
+
+            width: 54%;
+            height: 1px;
+
+            background: var(--rt-blue);
+
+            transform-origin: left center;
+            transform: rotate(-12deg);
+        }
+
+        .ray-point {
+            position: absolute;
+
+            left: 67%;
+            top: 37%;
+
+            width: 115px;
+            height: 115px;
+
+            border: 2px solid var(--rt-orange);
+            border-radius: 50%;
+        }
+
+        .ray-point::after {
+            content: "";
+
+            position: absolute;
+
+            left: 50%;
+            top: 50%;
+
+            width: 75px;
+            height: 1px;
+
+            background: var(--rt-orange);
+
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        .ray-normal {
+            position: absolute;
+
+            left: calc(67% + 57px);
+            top: calc(37% + 115px);
+
+            width: 1px;
+            height: 105px;
+
+            background: var(--rt-pink);
+        }
+
+        .ray-plane {
+            position: absolute;
+
+            left: 8%;
+            right: 8%;
+            bottom: 65px;
+
+            height: 1px;
+
+            background: var(--rt-text);
+
+            transform: rotate(4deg);
+        }
+
+        .ray-label {
+            position: absolute;
+
+            font-family: var(--rt-mono);
             font-size: 10px;
-
-            font-weight: 600;
-
-            letter-spacing: .08em;
-
-            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        .repo-link {
+        .ray-label.camera {
+            left: 10%;
+            top: calc(50% + 30px);
+        }
 
-            display: inline-block;
+        .ray-label.ray {
+            left: 39%;
+            top: 34%;
 
-            margin-top: 30px;
+            color: var(--rt-blue);
+        }
 
-            color: var(--green);
+        .ray-label.intersection {
+            left: 68%;
+            top: calc(37% - 30px);
 
-            font-size: 12px;
+            color: var(--rt-orange);
+        }
 
-            font-weight: 600;
+        .ray-label.normal {
+            left: calc(67% + 70px);
+            top: 62%;
+
+            color: var(--rt-pink);
+        }
+
+        .ray-label.plane {
+            right: 10%;
+            bottom: 40px;
+        }
+
+        .ray-equation {
+            position: absolute;
+
+            left: 12%;
+            bottom: 115px;
+
+            font-family: var(--rt-mono);
+            font-size: 15px;
         }
 
 
-        @media (max-width: 760px) {
+        /* =====================================================
+           MATH GRID
+           ===================================================== */
 
-            .project-page {
+        .math-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
 
-                width: calc(100% - 36px);
+            border-top: 1px solid var(--rt-line);
+            border-left: 1px solid var(--rt-line);
+        }
 
-                padding: 70px 0;
+        .math-card {
+            min-height: 250px;
+            padding: 35px;
+
+            border-right: 1px solid var(--rt-line);
+            border-bottom: 1px solid var(--rt-line);
+
+            position: relative;
+        }
+
+        .math-card:nth-child(1) {
+            background: #eef1f8;
+        }
+
+        .math-card:nth-child(2) {
+            background: #f8eee9;
+        }
+
+        .math-card:nth-child(3) {
+            background: #f5eaf0;
+        }
+
+        .math-card:nth-child(4) {
+            background: #f7f1dc;
+        }
+
+        .math-number {
+            color: var(--rt-muted);
+
+            font-family: var(--rt-mono);
+            font-size: 10px;
+        }
+
+        .math-card h3 {
+            margin: 35px 0 20px;
+
+            font-family: var(--rt-serif);
+            font-size: 27px;
+            font-weight: 500;
+        }
+
+        .math-card p {
+            max-width: 360px;
+
+            color: var(--rt-muted);
+
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .equation {
+            position: absolute;
+
+            right: 30px;
+            bottom: 30px;
+
+            font-family: var(--rt-mono);
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           GEOMETRY
+           ===================================================== */
+
+        .geometry-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .geometry-card {
+            min-height: 360px;
+
+            position: relative;
+
+            padding: 25px;
+
+            background: var(--rt-bg-soft);
+
+            overflow: hidden;
+        }
+
+        .geometry-label {
+            position: relative;
+            z-index: 3;
+
+            font-family: var(--rt-mono);
+            font-size: 11px;
+
+            letter-spacing: 0.08em;
+        }
+
+        .geometry-shape {
+            position: absolute;
+
+            left: 50%;
+            top: 53%;
+
+            transform: translate(-50%, -50%);
+        }
+
+        .sphere-shape {
+            width: 190px;
+            height: 190px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle at 35% 30%,
+                    #fff4c5 0%,
+                    var(--rt-yellow) 24%,
+                    var(--rt-orange) 58%,
+                    var(--rt-pink) 100%
+                );
+
+            box-shadow:
+                20px 20px 0 rgba(65, 105, 225, 0.12);
+        }
+
+        .cylinder-shape {
+            width: 125px;
+            height: 210px;
+
+            border-radius: 50px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--rt-blue),
+                    #72a6ff,
+                    var(--rt-pink)
+                );
+
+            box-shadow:
+                18px 18px 0 rgba(242, 107, 56, 0.13);
+        }
+
+        .plane-shape {
+            width: 270px;
+            height: 150px;
+
+            background: var(--rt-blue);
+
+            transform:
+                translate(-50%, -50%)
+                perspective(400px)
+                rotateX(58deg)
+                rotateZ(-8deg);
+
+            opacity: 0.9;
+        }
+
+
+        /* =====================================================
+           LIGHTING
+           ===================================================== */
+
+        .lighting {
+            position: relative;
+
+            min-height: 440px;
+
+            background: #17191a;
+
+            overflow: hidden;
+
+            color: white;
+        }
+
+        .light-source {
+            position: absolute;
+
+            left: 17%;
+            top: 20%;
+
+            width: 60px;
+            height: 60px;
+
+            background: var(--rt-yellow);
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 70px rgba(232, 184, 63, 0.5);
+        }
+
+        .light-ray {
+            position: absolute;
+
+            left: calc(17% + 60px);
+            top: calc(20% + 30px);
+
+            width: 48%;
+            height: 1px;
+
+            background: var(--rt-yellow);
+
+            transform: rotate(18deg);
+            transform-origin: left center;
+        }
+
+        .light-sphere {
+            position: absolute;
+
+            right: 18%;
+            top: 32%;
+
+            width: 180px;
+            height: 180px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle at 28% 25%,
+                    #fff7ce 0%,
+                    #f5c85c 18%,
+                    var(--rt-orange) 48%,
+                    #a83e71 100%
+                );
+        }
+
+        .light-shadow {
+            position: absolute;
+
+            right: 8%;
+            bottom: 65px;
+
+            width: 270px;
+            height: 35px;
+
+            border-radius: 50%;
+
+            background: rgba(0, 0, 0, 0.45);
+
+            filter: blur(12px);
+        }
+
+        .lighting-copy {
+            position: absolute;
+
+            left: 45px;
+            bottom: 45px;
+        }
+
+        .lighting-copy h3 {
+            margin: 0 0 12px;
+
+            font-family: var(--rt-serif);
+            font-size: 32px;
+            font-weight: 500;
+        }
+
+        .lighting-copy p {
+            margin: 0;
+
+            color: #a8aca9;
+
+            font-family: var(--rt-mono);
+            font-size: 11px;
+        }
+
+
+        /* =====================================================
+           RENDERS
+           ===================================================== */
+
+        .renders-grid {
+            display: grid;
+            grid-template-columns: 1.35fr 0.85fr;
+
+            gap: 20px;
+        }
+
+        .render {
+            overflow: hidden;
+
+            background: var(--rt-bg-soft);
+        }
+
+        .render.large {
+            grid-row: span 2;
+        }
+
+        .render img {
+            display: block;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        .render-placeholder {
+            min-height: 260px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: var(--rt-muted);
+
+            font-family: var(--rt-mono);
+            font-size: 11px;
+        }
+
+
+        /* =====================================================
+           STACK
+           ===================================================== */
+
+        .rt-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .rt-tag {
+            padding: 10px 15px;
+
+            border: 1px solid var(--rt-line);
+
+            font-family: var(--rt-mono);
+            font-size: 11px;
+        }
+
+
+        /* =====================================================
+           FOOTER
+           ===================================================== */
+
+        .rt-footer {
+            margin-top: 130px;
+            padding-top: 30px;
+
+            border-top: 1px solid var(--rt-line);
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            font-family: var(--rt-mono);
+            font-size: 11px;
+        }
+
+        .rt-github {
+            color: var(--rt-blue);
+        }
+
+        .rt-back {
+            color: var(--rt-muted);
+        }
+
+        .rt-github:hover,
+        .rt-back:hover {
+            color: var(--rt-text);
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+           ===================================================== */
+
+        @media (max-width: 850px) {
+
+            .rt-header {
+                padding: 25px 20px;
             }
 
-            .project-detail {
+            .rt-main {
+                padding: 65px 20px 80px;
+            }
 
+            .rt-hero {
+                min-height: 0;
+            }
+
+            .rt-hero-equation {
+                position: relative;
+
+                right: auto;
+                top: auto;
+
+                margin: 70px auto 0;
+
+                width: 260px;
+                height: 260px;
+            }
+
+            .math-grid {
                 grid-template-columns: 1fr;
-
-                gap: 25px;
             }
 
+            .geometry-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .renders-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .render.large {
+                grid-row: auto;
+            }
+
+            .lighting-copy {
+                left: 25px;
+                bottom: 25px;
+            }
+
+            .rt-footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
         }
 
     </style>
-
 </head>
 
 
-<body>
+<body class="raytracer-page">
 
-<header class="site-header">
 
-    <a
-        href="../index.html"
-        class="brand"
-    >
-        LOUIS FOURNEAU
-    </a>
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
 
-    <nav>
+    <header class="rt-header">
 
-        <a href="../index.html#work">
-            Work
+        <a href="../index.html" class="rt-brand">
+            LF://PORTFOLIO
         </a>
 
-        <a href="../index.html#about">
-            About
-        </a>
+        <nav class="rt-nav">
+            <a href="../index.html#work">WORK</a>
+            <a href="../index.html#about">ABOUT</a>
+            <a href="../index.html#contact">CONTACT</a>
+        </nav>
 
-        <a href="../index.html#contact">
-            Contact
-        </a>
-
-    </nav>
-
-</header>
+    </header>
 
 
-<main class="project-page">
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
 
-    <a
-        href="../index.html#work"
-        class="back"
-    >
-        ← Back to selected work
-    </a>
+    <main class="rt-main">
 
 
-    <p class="eyebrow">
-        01 — WEB · INFRASTRUCTURE
-    </p>
+        <!-- =================================================
+             HERO
+             ================================================= -->
+
+        <section class="rt-hero">
+
+            <div class="rt-kicker">
+                02 — COMPUTER GRAPHICS
+            </div>
+
+            <div class="rt-hero-text">
+
+                <h1 class="rt-title">
+                    <span>RAYTRACING,</span>
+                    <span class="rt-title-accent">
+                        FROM VECTORS
+                    </span>
+                    <span>TO LIGHT.</span>
+                </h1>
+
+                <p class="rt-intro">
+                    A 3D rendering engine built from scratch in C,
+                    exploring geometry, vectors, intersections,
+                    transformations and light simulation.
+                </p>
+
+            </div>
 
 
-    <h1>
-        Personal Blog
-    </h1>
+            <div class="rt-hero-equation">
+
+                <div class="rt-equation-text">
+                    P(t) = O + tD
+                </div>
+
+            </div>
+
+        </section>
 
 
-    <p class="project-intro">
+        <!-- =================================================
+             THE RAY
+             ================================================= -->
 
-        A containerized WordPress application built with
-        Docker, Nginx, PHP-FPM and MariaDB.
+        <section class="rt-section">
 
-    </p>
+            <div class="rt-section-header">
 
+                <span class="rt-section-number">
+                    01
+                </span>
 
-    <div class="project-image project-hero-image placeholder">
+                <h2 class="rt-section-title">
+                    The Ray
+                </h2>
 
-        <span>
-            IMAGE PLACEHOLDER
-        </span>
-
-    </div>
-
-
-    <div class="project-detail">
-
-        <h2>
-            About
-        </h2>
-
-        <p>
-
-            A personal blogging platform built as a
-            containerized web infrastructure.
-
-            The project brings together WordPress,
-            PHP-FPM, MariaDB and Nginx, with each
-            component running within the Docker
-            environment.
-
-        </p>
-
-    </div>
+            </div>
 
 
-    <div class="project-detail">
+            <div class="ray-diagram">
 
-        <h2>
-            Technologies
-        </h2>
+                <div class="ray-camera"></div>
 
-        <div class="page-tags">
+                <div class="ray-line"></div>
 
-            <span>Docker</span>
-            <span>WordPress</span>
-            <span>PHP-FPM</span>
-            <span>MariaDB</span>
-            <span>Nginx</span>
+                <div class="ray-point"></div>
 
-        </div>
+                <div class="ray-normal"></div>
 
-    </div>
+                <div class="ray-plane"></div>
 
 
-    <div class="project-detail">
+                <span class="ray-label camera">
+                    CAMERA
+                </span>
 
-        <h2>
-            Repository
-        </h2>
+                <span class="ray-label ray">
+                    RAY
+                </span>
 
-        <div>
+                <span class="ray-label intersection">
+                    INTERSECTION
+                </span>
 
-            <p>
-                Source code and implementation details.
-            </p>
+                <span class="ray-label normal">
+                    NORMAL
+                </span>
 
-            <!-- Replace with the exact repository URL -->
+                <span class="ray-label plane">
+                    PLANE
+                </span>
+
+
+                <div class="ray-equation">
+                    P(t) = O + tD
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             THE MATH
+             ================================================= -->
+
+        <section class="rt-section">
+
+            <div class="rt-section-header">
+
+                <span class="rt-section-number">
+                    02
+                </span>
+
+                <h2 class="rt-section-title">
+                    The Math Behind the Image
+                </h2>
+
+            </div>
+
+
+            <div class="math-grid">
+
+
+                <article class="math-card">
+
+                    <span class="math-number">
+                        01 / VECTORS
+                    </span>
+
+                    <h3>
+                        Direction
+                    </h3>
+
+                    <p>
+                        Rays, camera orientation and surface
+                        normals all rely on vector operations
+                        in three-dimensional space.
+                    </p>
+
+                    <span class="equation">
+                        |V| = √(x² + y² + z²)
+                    </span>
+
+                </article>
+
+
+                <article class="math-card">
+
+                    <span class="math-number">
+                        02 / INTERSECTION
+                    </span>
+
+                    <h3>
+                        Geometry
+                    </h3>
+
+                    <p>
+                        Each ray must be tested against the
+                        geometric objects present in the scene.
+                    </p>
+
+                    <span class="equation">
+                        |P − C|² = r²
+                    </span>
+
+                </article>
+
+
+                <article class="math-card">
+
+                    <span class="math-number">
+                        03 / TRANSFORMATION
+                    </span>
+
+                    <h3>
+                        Space
+                    </h3>
+
+                    <p>
+                        Objects and the camera can be translated
+                        and rotated through three-dimensional space.
+                    </p>
+
+                    <span class="equation">
+                        P' = RP + T
+                    </span>
+
+                </article>
+
+
+                <article class="math-card">
+
+                    <span class="math-number">
+                        04 / NORMALS
+                    </span>
+
+                    <h3>
+                        Surfaces
+                    </h3>
+
+                    <p>
+                        Surface orientation provides the geometric
+                        information needed to calculate how light
+                        interacts with an object.
+                    </p>
+
+                    <span class="equation">
+                        N · L
+                    </span>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             GEOMETRY
+             ================================================= -->
+
+        <section class="rt-section">
+
+            <div class="rt-section-header">
+
+                <span class="rt-section-number">
+                    03
+                </span>
+
+                <h2 class="rt-section-title">
+                    Geometry
+                </h2>
+
+            </div>
+
+
+            <div class="geometry-grid">
+
+
+                <!-- SPHERE -->
+
+                <article class="geometry-card">
+
+                    <span class="geometry-label">
+                        SPHERE
+                    </span>
+
+                    <div class="geometry-shape sphere-shape"></div>
+
+                </article>
+
+
+                <!-- CYLINDER -->
+
+                <article class="geometry-card">
+
+                    <span class="geometry-label">
+                        CYLINDER
+                    </span>
+
+                    <div class="geometry-shape cylinder-shape"></div>
+
+                </article>
+
+
+                <!-- PLANE -->
+
+                <article class="geometry-card">
+
+                    <span class="geometry-label">
+                        PLANE
+                    </span>
+
+                    <div class="geometry-shape plane-shape"></div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             LIGHT
+             ================================================= -->
+
+        <section class="rt-section">
+
+            <div class="rt-section-header">
+
+                <span class="rt-section-number">
+                    04
+                </span>
+
+                <h2 class="rt-section-title">
+                    Light
+                </h2>
+
+            </div>
+
+
+            <div class="lighting">
+
+                <div class="light-source"></div>
+
+                <div class="light-ray"></div>
+
+                <div class="light-sphere"></div>
+
+                <div class="light-shadow"></div>
+
+
+                <div class="lighting-copy">
+
+                    <h3>
+                        From light<br>
+                        to pixel.
+                    </h3>
+
+                    <p>
+                        AMBIENT · DIFFUSE · HARD SHADOWS
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             RENDERS
+             ================================================= -->
+
+        <section class="rt-section">
+
+            <div class="rt-section-header">
+
+                <span class="rt-section-number">
+                    05
+                </span>
+
+                <h2 class="rt-section-title">
+                    The Result
+                </h2>
+
+            </div>
+
+
+            <div class="renders-grid">
+
+
+                <!--
+                    Replace these placeholders with your
+                    actual miniRT renders.
+
+                    Example:
+
+                    <img
+                        src="../images/raytracer-01.png"
+                        alt="miniRT render"
+                    >
+                -->
+
+
+                <div class="render large">
+
+                    <div class="render-placeholder">
+                        RENDER / 01
+                    </div>
+
+                </div>
+
+
+                <div class="render">
+
+                    <div class="render-placeholder">
+                        RENDER / 02
+                    </div>
+
+                </div>
+
+
+                <div class="render">
+
+                    <div class="render-placeholder">
+                        RENDER / 03
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             STACK
+             ================================================= -->
+
+        <section class="rt-section">
+
+            <div class="rt-section-header">
+
+                <span class="rt-section-number">
+                    06
+                </span>
+
+                <h2 class="rt-section-title">
+                    Built With
+                </h2>
+
+            </div>
+
+
+            <div class="rt-stack">
+
+                <span class="rt-tag">C</span>
+                <span class="rt-tag">Raytracing</span>
+                <span class="rt-tag">Linear Algebra</span>
+                <span class="rt-tag">3D Geometry</span>
+                <span class="rt-tag">MiniLibX</span>
+                <span class="rt-tag">X11</span>
+                <span class="rt-tag">Makefile</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             FOOTER
+             ================================================= -->
+
+        <footer class="rt-footer">
 
             <a
                 href="https://github.com/lfourneau"
                 target="_blank"
-                rel="noopener"
-                class="repo-link"
+                rel="noopener noreferrer"
+                class="rt-github"
             >
-                View on GitHub ↗
+                → VIEW ON GITHUB
             </a>
 
-        </div>
+            <a
+                href="../index.html#work"
+                class="rt-back"
+            >
+                ← BACK TO WORK
+            </a>
 
-    </div>
+        </footer>
 
-</main>
+
+    </main>
 
 </body>
 </html>
