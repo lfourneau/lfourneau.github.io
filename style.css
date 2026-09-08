@@ -277,18 +277,12 @@ nav a:hover {
     grid-column: 1 / -1;
 }
 
-
-/* IMAGE PLACEHOLDER */
-
 .project-image {
-
     width: 100%;
-
     aspect-ratio: 16 / 9;
-
     margin-bottom: 20px;
-
-    background: #e8e8e2;
+    object-fit: cover;
+    display: block;
 }
 
 .project-card:not(.project-card-large)
