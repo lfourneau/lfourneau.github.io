@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Louis Fourneau — Technical portfolio"
+    >
+
+    <title>Louis Fourneau — I develop things.</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <header class="site-header">
+
+        <a href="#top" class="brand">
+            LOUIS FOURNEAU
+        </a>
+
+        <nav>
+            <a href="#work">Work</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+    </header>
+
+
+    <main id="top">
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <p class="eyebrow">
+                TECHNICAL PORTFOLIO · PARIS
+            </p>
+
+            <h1>
+                I develop <em>things.</em>
+            </h1>
+
+            <p class="hero-copy">
+                From low-level C to containerized applications,
+                I like understanding how things work and building
+                them from the ground up.
+            </p>
+
+            <a href="#work" class="text-link">
+                Explore selected work
+                <span>↘</span>
+            </a>
+
+        </section>
+
+
+        <!-- PROJECTS -->
+
+        <section class="section" id="work">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    01 — SELECTED WORK
+                </p>
+
+                <p class="section-note">
+                    A selection of technical projects
+                </p>
+
+            </div>
+
+
+            <div class="project-grid">
+
+
+                <!-- PROJECT 01 -->
+
+                <a
+                    href="projects/personal-blog.html"
+                    class="project-card project-card-large"
+                >
+
+                    <div class="project-image placeholder">
+                        <span>IMAGE PLACEHOLDER</span>
+                    </div>
+
+                    <div class="project-meta">
+
+                        <span class="project-number">
+                            01
+                        </span>
+
+                        <span class="project-type">
+                            WEB · INFRASTRUCTURE
+                        </span>
+
+                    </div>
+
+                    <h2>
+                        Personal Blog
+                    </h2>
+
+                    <p>
+                        A containerized WordPress application built
+                        with Docker, Nginx, PHP-FPM and MariaDB.
+                    </p>
+
+                    <div class="tags">
+                        <span>Docker</span>
+                        <span>Nginx</span>
+                        <span>PHP-FPM</span>
+                        <span>MariaDB</span>
+                    </div>
+
+                </a>
+
+
+                <!-- PROJECT 02 -->
+
+                <a
+                    href="projects/raytracer.html"
+                    class="project-card"
+                >
+
+                    <div class="project-image placeholder">
+                        <span>IMAGE PLACEHOLDER</span>
+                    </div>
+
+                    <div class="project-meta">
+
+                        <span class="project-number">
+                            02
+                        </span>
+
+                        <span class="project-type">
+                            COMPUTER GRAPHICS
+                        </span>
+
+                    </div>
+
+                    <h2>
+                        miniRT
+                    </h2>
+
+                    <p>
+                        A raytracing engine written from scratch in C,
+                        built around geometry, vectors and light simulation.
+                    </p>
+
+                    <div class="tags">
+                        <span>C</span>
+                        <span>Raytracing</span>
+                        <span>Linear algebra</span>
+                    </div>
+
+                </a>
+
+
+                <!-- PROJECT 03 -->
+
+                <a
+                    href="projects/minishell.html"
+                    class="project-card"
+                >
+
+                    <div class="project-image placeholder">
+                        <span>IMAGE PLACEHOLDER</span>
+                    </div>
+
+                    <div class="project-meta">
+
+                        <span class="project-number">
+                            03
+                        </span>
+
+                        <span class="project-type">
+                            SYSTEM PROGRAMMING
+                        </span>
+
+                    </div>
+
+                    <h2>
+                        Minishell
+                    </h2>
+
+                    <p>
+                        A Unix shell implementation exploring processes,
+                        parsing, pipes, signals and file descriptors.
+                    </p>
+
+                    <div class="tags">
+                        <span>C</span>
+                        <span>Unix</span>
+                        <span>Processes</span>
+                    </div>
+
+                </a>
+
+
+                <!-- OTHER PROJECTS -->
+
+                <a
+                    href="https://github.com/lfourneau"
+                    target="_blank"
+                    rel="noopener"
+                    class="project-card project-card-other"
+                >
+
+                    <div class="other-project-content">
+
+                        <span class="project-number">
+                            04
+                        </span>
+
+                        <p class="eyebrow">
+                            THE REST OF IT
+                        </p>
+
+                        <h2>
+                            Other projects
+                            <span>↗</span>
+                        </h2>
+
+                        <p>
+                            More experiments, coursework and things
+                            built along the way.
+                        </p>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+
+        <section class="section about-section" id="about">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    02 — ABOUT
+                </p>
+
+            </div>
+
+            <div class="about-content">
+
+                <p class="about-lead">
+                    I like understanding how things work,
+                    from low-level systems to web applications,
+                    and then building them myself.
+                </p>
+
+                <p class="about-body">
+                    My projects span system programming,
+                    infrastructure, web development and data.
+                    I enjoy moving between layers — writing C,
+                    working with Linux and Docker, manipulating
+                    data with Python and SQL, or turning it into
+                    something useful with Power BI.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- TECHNOLOGIES -->
+
+        <section class="section tech-section" id="technologies">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    03 — TECHNOLOGIES
+                </p>
+
+                <p class="section-note">
+                    Tools I use to build things
+                </p>
+
+            </div>
+
+
+            <div class="tech-list">
+
+
+                <div class="tech-row">
+
+                    <span class="tech-index">
+                        01
+                    </span>
+
+                    <span class="tech-category">
+                        LANGUAGES
+                    </span>
+
+                    <span class="tech-items">
+                        C · C++ · Python · JavaScript · SQL · Bash
+                    </span>
+
+                </div>
+
+
+                <div class="tech-row">
+
+                    <span class="tech-index">
+                        02
+                    </span>
+
+                    <span class="tech-category">
+                        WEB & INFRASTRUCTURE
+                    </span>
+
+                    <span class="tech-items">
+                        HTML/CSS · Docker · Nginx · Linux · Git
+                    </span>
+
+                </div>
+
+
+                <div class="tech-row">
+
+                    <span class="tech-index">
+                        03
+                    </span>
+
+                    <span class="tech-category">
+                        DATA
+                    </span>
+
+                    <span class="tech-items">
+                        Power BI · Power Query
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="site-footer" id="contact">
+
+        <div>
+
+            <p class="eyebrow">
+                04 — GET IN TOUCH
+            </p>
+
+            <h2>
+                Let's build something.
+            </h2>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="mailto:lfourneau12345@gmail.com">
+                Email ↗
+            </a>
+
+            <a
+                href="https://github.com/lfourneau"
+                target="_blank"
+                rel="noopener"
+            >
+                GitHub ↗
+            </a>
+
+            <!-- Replace # with your LinkedIn URL -->
+
+            <a href="#">
+                LinkedIn ↗
+            </a>
+
+        </div>
+
+
+        <p class="copyright">
+            © 2026 Louis Fourneau
+        </p>
+
+    </footer>
+
+</body>
+</html>

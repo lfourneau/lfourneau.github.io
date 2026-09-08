@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Personal Blog — Louis Fourneau</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+
+        .project-page {
+
+            width: min(
+                calc(100% - 64px),
+                1180px
+            );
+
+            margin: 0 auto;
+
+            padding: 100px 0;
+        }
+
+        .back {
+
+            display: inline-block;
+
+            margin-bottom: 70px;
+
+            color: var(--green);
+
+            font-size: 12px;
+
+            font-weight: 600;
+        }
+
+        .project-page h1 {
+
+            margin: 0;
+
+            max-width: 900px;
+
+            font-size:
+                clamp(
+                    58px,
+                    10vw,
+                    130px
+                );
+
+            font-weight: 500;
+
+            letter-spacing: -.06em;
+
+            line-height: .92;
+        }
+
+        .project-intro {
+
+            max-width: 650px;
+
+            margin: 35px 0 55px;
+
+            color: var(--muted);
+
+            font-size: 18px;
+        }
+
+        .project-hero-image {
+
+            width: 100%;
+
+            aspect-ratio: 16 / 8;
+
+            margin: 55px 0;
+        }
+
+        .project-detail {
+
+            display: grid;
+
+            grid-template-columns: 1fr 2fr;
+
+            gap: 60px;
+
+            padding: 50px 0;
+
+            border-top: 1px solid var(--line);
+        }
+
+        .project-detail h2 {
+
+            margin: 0;
+
+            font-family: var(--serif);
+
+            font-size: 34px;
+
+            font-weight: 400;
+        }
+
+        .project-detail p {
+
+            margin: 0;
+
+            max-width: 650px;
+
+            color: var(--muted);
+        }
+
+        .page-tags {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+        }
+
+        .page-tags span {
+
+            padding: 5px 10px;
+
+            border: 1px solid var(--line);
+
+            color: var(--green);
+
+            font-size: 10px;
+
+            font-weight: 600;
+
+            letter-spacing: .08em;
+
+            text-transform: uppercase;
+        }
+
+        .repo-link {
+
+            display: inline-block;
+
+            margin-top: 30px;
+
+            color: var(--green);
+
+            font-size: 12px;
+
+            font-weight: 600;
+        }
+
+
+        @media (max-width: 760px) {
+
+            .project-page {
+
+                width: calc(100% - 36px);
+
+                padding: 70px 0;
+            }
+
+            .project-detail {
+
+                grid-template-columns: 1fr;
+
+                gap: 25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<header class="site-header">
+
+    <a
+        href="../index.html"
+        class="brand"
+    >
+        LOUIS FOURNEAU
+    </a>
+
+    <nav>
+
+        <a href="../index.html#work">
+            Work
+        </a>
+
+        <a href="../index.html#about">
+            About
+        </a>
+
+        <a href="../index.html#contact">
+            Contact
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main class="project-page">
+
+    <a
+        href="../index.html#work"
+        class="back"
+    >
+        ← Back to selected work
+    </a>
+
+
+    <p class="eyebrow">
+        01 — WEB · INFRASTRUCTURE
+    </p>
+
+
+    <h1>
+        Personal Blog
+    </h1>
+
+
+    <p class="project-intro">
+
+        A containerized WordPress application built with
+        Docker, Nginx, PHP-FPM and MariaDB.
+
+    </p>
+
+
+    <div class="project-image project-hero-image placeholder">
+
+        <span>
+            IMAGE PLACEHOLDER
+        </span>
+
+    </div>
+
+
+    <div class="project-detail">
+
+        <h2>
+            About
+        </h2>
+
+        <p>
+
+            A personal blogging platform built as a
+            containerized web infrastructure.
+
+            The project brings together WordPress,
+            PHP-FPM, MariaDB and Nginx, with each
+            component running within the Docker
+            environment.
+
+        </p>
+
+    </div>
+
+
+    <div class="project-detail">
+
+        <h2>
+            Technologies
+        </h2>
+
+        <div class="page-tags">
+
+            <span>Docker</span>
+            <span>WordPress</span>
+            <span>PHP-FPM</span>
+            <span>MariaDB</span>
+            <span>Nginx</span>
+
+        </div>
+
+    </div>
+
+
+    <div class="project-detail">
+
+        <h2>
+            Repository
+        </h2>
+
+        <div>
+
+            <p>
+                Source code and implementation details.
+            </p>
+
+            <!-- Replace with the exact repository URL -->
+
+            <a
+                href="https://github.com/lfourneau"
+                target="_blank"
+                rel="noopener"
+                class="repo-link"
+            >
+                View on GitHub ↗
+            </a>
+
+        </div>
+
+    </div>
+
+</main>
+
+</body>
+</html>
