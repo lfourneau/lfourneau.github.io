@@ -759,9 +759,14 @@ nav a:hover {
 
         align-items: flex-start;
     }
+
     .writing-list {
-	    padding-right: 5px;
-	    padding-left: 5px;
+        grid-template-columns: 1fr; /* Ensures articles stack vertically on mobile */
+        gap: 20px;
+    }
+
+    .writing-item {
+        padding: 20px 16px; /* Adds top/bottom and left/right internal padding */
     }
 }
 
