@@ -865,3 +865,26 @@ nav a:hover {
 
     line-height: 1.6;
 }
+
+.writing-intro {
+    max-width: 620px;
+    margin: 32px 0 0;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.65;
+}
+
+.writing-intro-grid {
+    padding-top: 32px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 32px;
+}
+
+.writing-intro-lead {
+    margin: 0;
+    font-family: var(--serif);
+    color: var(--muted);
+    align: justify;
+    font-size: 17px;
+    line-height: 1.35;
+}
